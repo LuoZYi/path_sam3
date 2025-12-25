@@ -1,0 +1,44 @@
+# logs
+*.log
+
+
+# --- pipeline: data links (symlink) ---
+pipeline/data_links/
+
+# --- pipeline: datasets (data / symlink / generated images) ---
+# 忽略重组数据入口（symlink）
+pipeline/Datasets/**/Glas_new*/
+pipeline/Datasets/**/Glas_org*/
+
+# 忽略由脚本生成的图片产物（只在 Datasets 下面生效）
+# pipeline/Datasets/**/*.bmp
+# pipeline/Datasets/**/*.png
+
+# 如果你只想忽略特定生成目录，比忽略所有 bmp/png 更安全（可二选一）
+pipeline/Datasets/**/side_by_side/
+pipeline/Datasets/**/vis_out/
+
+# --- experiments (logs, checkpoints, runs) ---
+pipeline/experiments/
+**/wandb/
+**/runs/
+**/tensorboard/
+
+# --- generated artifacts ---
+pipeline/generated_coco/
+
+# --- checkpoints / weights anywhere ---
+**/checkpoints/
+**/*.pt
+**/*.pth
+**/*.ckpt
+**/*.safetensors
+**/*.onnx
+
+# --- caches ---
+**/__pycache__/
+**/.cache/
+**/.ipynb_checkpoints/
+
+# --- logs ---
+*.log
